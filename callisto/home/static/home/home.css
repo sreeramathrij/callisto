@@ -17,19 +17,17 @@ body{
 .home-container{
     background-color: rgb(241, 234, 234);
     position: absolute;
-    top: 2rem;
-    left: 2rem;
-    right: 2rem;
-    bottom: 2rem;
-    border-radius: 5px;
-    box-shadow:  0 0 20px 5px #b6b6b6;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 .home-logo{
     width: fit-content;
-    position: relative;
-    top: 40%;
-    left: 47%;
+    position: fixed;
+    top: 20%;
+    left: 43%;
     right: 50%;
 }
 
@@ -37,7 +35,7 @@ body{
     position: relative;
     left: 10%;
     right: 10%;
-    top: 50%;
+    top: 55%;
     width: 88%;
 
 }
