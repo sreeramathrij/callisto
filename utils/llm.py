@@ -1,5 +1,9 @@
 import requests
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
+openai_api_key = os.getenv("OPENAI_API_KEY")
 
 class LLM:
     def model_pool(self, name):
@@ -64,7 +68,7 @@ class LLM:
             return x.json()
 
 if __name__ == "__main__":
-    gpt4 = LLM("gpt-4", api_key="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") #DONT UPLOAD THIS ANYWHERE WITHOUT DELETING THE API KEYS
-    gpt40613 = LLM("gpt-4-0613", api_key="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") #DONT UPLOAD THIS ANYWHERE WITHOUT DELETING THE API KEYS
+    gpt4 = LLM("gpt-4", api_key=openai_api_key) #DONT UPLOAD THIS ANYWHERE WITHOUT DELETING THE API KEYS
+    gpt40613 = LLM("gpt-4-0613", api_key=openai_api_key) #DONT UPLOAD THIS ANYWHERE WITHOUT DELETING THE API KEYS
     print(gpt4.generate("hey who are you"))
     print(gpt40613.generate([('system', 'You are Nvidia CEO Jenson Huang'),('user', "hey who are you")]))
