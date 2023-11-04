@@ -1,0 +1,106 @@
+:root{
+    font-size: 16px;
+    font-family: "cascadia code";
+    --text-primary: #b6b6b6;
+    --text-secondary: #ececec;
+    --bg-primary: #1b1b1b;
+    --bg-secondary: #141418;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar{
+    z-index: 1;
+    width: 5rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #363636;
+    transition: width 200ms ease;
+}
+
+.navbar:hover{
+    width: 16rem;
+}
+
+.navlogo{
+    height: 4rem;
+    width: 4rem;
+}
+.navitems{
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    position: relative;
+    width: 100%;
+    list-style-type: none;
+    justify-content: center;
+    align-items: center;
+}
+.navitem{
+    position: relative;
+    top: 0;
+    height: 4rem;
+    width: 100%;
+    transition: height 0.15s;
+}
+
+.item-header{
+    display: flex;
+    align-items: center;
+    width: 5rem;
+    height: 100%;
+    color: #d64b95;
+    text-decoration: none;
+    filter: grayscale(100%) opacity(0.8);
+    transition: filter 50ms;
+    transition: width 200ms ease;
+}
+
+.navbar:hover .item-header{
+    width: 16rem;
+}
+
+.item-header:hover{
+    filter: grayscale(0%) opacity(1);
+    background: var(--bg-secondary);
+}
+
+.item-header svg{
+    min-width: 1rem;
+    position: fixed;
+    left: 1rem;
+}
+
+.navitem-text{
+    position: fixed;
+    left: 3.6rem;
+    font-weight: bolder;
+    z-index: -1;
+    width: 9rem;
+    margin-left: 2rem;
+    transition: opacity 50ms ease;
+    transform:translate(9999px);
+    opacity: 0;
+}
+
+.navbar:hover .navitem-text{
+    z-index: 2;
+    opacity: 100%;
+    transform: translate(0);
+    transition: opacity 200ms ease 5ms;
+}
+
+.fa-primary{
+    fill: #ee3999;
+    color: #ee3999;
+}
+.fa-secondary{
+    fill: #cd1c7a;
+    color: #cd1c7a;
+}

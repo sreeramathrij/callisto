@@ -1,0 +1,86 @@
+:root{
+    font-size: 16px;
+    font-family: "cascadia code";
+    --text-primary: #b6b6b6;
+    --text-secondary: #ececec;
+    --bg-primary: #1b1b1b;
+    --bg-secondary: #141418;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+.home-container{
+    background-color: rgb(241, 234, 234);
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    right: 2rem;
+    bottom: 2rem;
+    border-radius: 5px;
+    box-shadow:  0 0 20px 5px #b6b6b6;
+}
+
+.home-logo{
+    width: fit-content;
+    position: relative;
+    top: 40%;
+    left: 47%;
+    right: 50%;
+}
+
+.list-container{
+    position: relative;
+    left: 10%;
+    right: 10%;
+    top: 50%;
+    width: 88%;
+
+}
+
+.homeitems{
+    padding: 0;
+    list-style-type: none;
+    width: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.homeitem{
+    border-radius: 5px;
+    width: 10%;
+    height: 8rem;
+    transition: transform 50ms;
+}
+
+.homeitem:hover{
+    background-color: #ffd0d0;
+    transform: scale(1.05);
+}
+
+.homeitem a{
+    text-decoration: none;
+    color: #141418;
+}
+
+.item-header{
+    position: relative;
+    top: 5%;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.navitem-text{
+    margin-top: 5%;
+    font-weight: bolder;
+    text-decoration: none;
+    width: auto;
+}
