@@ -1,4 +1,8 @@
 import requests
+import os
+
+open_api_key = os.environ["OPENAI_API_KEY"]
+print(open_api_key)
 
 class LLM:
     def model_pool(self, name):
@@ -46,8 +50,7 @@ class LLM:
     def create_message(self, query):
         if not isinstance(query, list):
             query = [('system', "You are a helpful, respectful and honest assistant trained to help computer science engineering college students learn subjects. Always answer as helpfully as possible, while being safe. If a question does not make any sense, or is not factually coherent, explain why instead of answering something not correct. Answer every question with detailed explainations."),
-                     ('user', "Provide two programming examples in which multithreading provides better performance than a single-threaded solution")
-                     ('assistance', "Understood!. I will follow the guidelines. Please give me instruction")]
+                     ('user', query)]
         messages = []
         for role, text in query:
             message = {"role" : role, "content": text}
@@ -64,7 +67,7 @@ class LLM:
             return x.json()
 
 if __name__ == "__main__":
-    gpt4 = LLM("gpt-4", api_key="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") #DONT UPLOAD THIS ANYWHERE WITHOUT DELETING THE API KEYS
-    gpt40613 = LLM("gpt-4-0613", api_key="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") #DONT UPLOAD THIS ANYWHERE WITHOUT DELETING THE API KEYS
+    gpt4 = LLM("gpt-4", api_key=open_api_key) #DONT UPLOAD THIS ANYWHERE WITHOUT DELETING THE API KEYS
+    gpt40613 = LLM("gpt-4-0613", api_key=open_api_key) #DONT UPLOAD THIS ANYWHERE WITHOUT DELETING THE API KEYS
     print(gpt4.generate("hey who are you"))
     print(gpt40613.generate([('system', 'You are Nvidia CEO Jenson Huang'),('user', "hey who are you")]))
