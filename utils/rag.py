@@ -4,8 +4,6 @@ from langchain.text_splitter import CharacterTextSplitter
 from langchain.vectorstores import FAISS
 import os
 
-open_api_key = os.environ['OPENAI_API_KEY']
-
 class RAG:
 
     def __init__(self, folder) -> None:
@@ -15,10 +13,10 @@ class RAG:
             raw_documents = TextLoader(os.path.join(folder, file)).load()
             text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
             documents.extend(text_splitter.split_documents(raw_documents))
-        self.db = FAISS.from_documents(documents, OpenAIEmbeddings(openai_api_key=open_api_key))
+        self.db = FAISS.from_documents(documents, OpenAIEmbeddings(openai_api_key="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"))
 
     def get_context(self, query):
-        embedding_vector = OpenAIEmbeddings(openai_api_key=open_api_key).embed_query(query)
+        embedding_vector = OpenAIEmbeddings(openai_api_key="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").embed_query(query)
         docs = self.db.similarity_search_by_vector(embedding_vector)
         return docs[0].page_content
 
