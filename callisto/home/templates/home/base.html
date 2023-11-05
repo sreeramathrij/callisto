@@ -14,7 +14,7 @@
                 font-family: "cascadia code";
                 --text-primary: #b6b6b6;
                 --text-secondary: #ececec;
-                --bg-primary: #1b1b1b;
+                --bg-primary: #d6c6c6;
                 --bg-secondary: rgb(218, 145, 145);
             }
             
@@ -123,7 +123,7 @@
             }
 
             .itemlist{
-                {% comment %} display:none; {% endcomment %}
+                display:none;
                 width: 16rem;
                 height: fit-content;
             }
@@ -145,13 +145,16 @@
             .content{
                 margin-left: 5rem;
                 position: absolute;
-                height: 100vw;
-                width: auto;
+                height: 100vh;
+                width: 100vw;
+                background-color: rgb(235, 143, 143);
             }
             
             .chatinput{
-                top: 60%;
-                width: 80vw;
+                position: relative;
+                top: 50%;
+                left: 15%;
+                width: 60vw;
             }
 
             .divinput{
@@ -299,7 +302,7 @@
                         <div class="divinput">
                             {% csrf_token %}
                             <input type="text" class="textinput" name="callistoip" placeholder="Enter a Question about 🖥️OperatingSystems" required />
-                            <input type="submit" class="inputbtn" value=">" />
+                            <button type="submit" class="submitbtn">Submit</button>
                         </div>
                     </form>
                 </div>

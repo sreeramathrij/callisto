@@ -36,11 +36,10 @@ class LLM:
                 'headers' : {'correlationId': "<Random-GUID>", 'Content-Type': 'application/json'},
                 'message-field' : "messages"
             }
-            
         }
         return models[name]
 
-    def __init__(self, model_name, api_key=openai_api_key, params = {}) -> None:
+    def __init__(self, model_name, api_key='', params = {}) -> None:
         self.model = self.model_pool(model_name)
         self.data = self.model['data'].copy()
         self.headers = self.model['headers'].copy()
@@ -64,7 +63,7 @@ class LLM:
         x = requests.post(self.url, headers=self.headers, json=self.data)
         if x.status_code == 200:
             return x.json()['choices'][0]['message']['content']
-        else: 
+        else:
             return x.json()
 
 if __name__ == "__main__":
