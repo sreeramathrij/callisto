@@ -40,7 +40,7 @@ class LLM:
         }
         return models[name]
 
-    def __init__(self, model_name, api_key = '', params = {}) -> None:
+    def __init__(self, model_name, api_key=openai_api_key, params = {}) -> None:
         self.model = self.model_pool(model_name)
         self.data = self.model['data'].copy()
         self.headers = self.model['headers'].copy()
