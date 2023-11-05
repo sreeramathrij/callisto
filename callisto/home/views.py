@@ -4,8 +4,6 @@ from django.shortcuts import render
 def home(request):
     return render(request, "home/home.html")
 
-def index(request, year, *args, **kwargs):
-    year = year
-    
-    return render(request, "")
+def index(request):
+    return render(request, "home/base.html")
     

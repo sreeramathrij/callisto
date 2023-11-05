@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns = [
     path("", views.home),
-    path("year<int:>")
+    path("year2/s4", views.index)
 ]

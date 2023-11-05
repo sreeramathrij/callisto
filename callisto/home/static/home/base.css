@@ -4,24 +4,32 @@
     --text-primary: #b6b6b6;
     --text-secondary: #ececec;
     --bg-primary: #1b1b1b;
-    --bg-secondary: #141418;
+    --bg-secondary: rgb(24, 20, 20);
 }
 
 body{
-    width: 100vw;
-    height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
     padding: 0;
     margin: 0;
+}
+
+main{
+    display: flex;
 }
 
 .navbar{
     z-index: 1;
     width: 5rem;
-    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
     display: flex;
     flex-direction: column;
-    background-color: #363636;
+    background-color: #e7cccc;
     transition: width 200ms ease;
+    
 }
 
 .navbar:hover{
@@ -99,8 +107,20 @@ body{
 .fa-primary{
     fill: #ee3999;
     color: #ee3999;
+    
 }
 .fa-secondary{
     fill: #cd1c7a;
     color: #cd1c7a;
+}
+
+.chatinput{
+    position: relative;
+    left: 30%;
+    top: 60%;
+}
+
+.textinput{
+    height: 2rem;
+    width: 100%;
 }
