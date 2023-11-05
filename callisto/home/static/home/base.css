@@ -2,9 +2,9 @@
     font-size: 16px;
     font-family: "cascadia code";
     --text-primary: #b6b6b6;
-    --text-secondary: #ececec;
+    --text-secondary: #fadddd;
     --bg-primary: #1b1b1b;
-    --bg-secondary: rgb(24, 20, 20);
+    --bg-secondary: rgb(236, 186, 186);
 }
 
 body{
@@ -17,6 +17,8 @@ body{
 main{
     display: flex;
 }
+
+main:last-child
 
 .navbar{
     z-index: 1;
@@ -103,7 +105,17 @@ main{
     transform: translate(0);
     transition: opacity 200ms ease 5ms;
 }
+.itemlist{
+    display:none;
+    width: 16rem;
+    height: fit-content;
+}
 
+.navlist{
+    display: none;
+    width: 16rem;
+    height: fit-content;
+}
 .fa-primary{
     fill: #ee3999;
     color: #ee3999;
@@ -114,10 +126,24 @@ main{
     color: #cd1c7a;
 }
 
+.content{
+    margin-left: 5rem;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(243, 212, 212);
+}
+
 .chatinput{
     position: relative;
-    left: 30%;
-    top: 60%;
+    top: 50%;
+    left: 15%;
+    width: 60vw;
+}
+
+.divinput{
+    display: flex;
+    justify-content: space-around;
 }
 
 .textinput{
