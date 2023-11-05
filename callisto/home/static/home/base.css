@@ -4,7 +4,7 @@
     --text-primary: #b6b6b6;
     --text-secondary: #fadddd;
     --bg-primary: #1b1b1b;
-    --bg-secondary: rgb(236, 186, 186);
+    --bg-secondary: rgb(230, 169, 169);
 }
 
 body{
@@ -12,6 +12,8 @@ body{
     max-height: 100vh;
     padding: 0;
     margin: 0;
+    height: fit-content;
+
 }
 
 main{

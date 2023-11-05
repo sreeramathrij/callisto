@@ -154,14 +154,15 @@
                 flex-direction:column;
                 align-items:center;
                 justify-content:space-around;
-                position: relative;
-                top: 50%;
+                position: fixed;
+                top:auto;
+                bottom: 25%;
                 left: 15%;
                 width: 60vw;
             }
             .chatinput{
                 position: relative;
-                left: 2%;
+                left: 8%;
                 width: 60vw;
             }
 
@@ -183,30 +184,48 @@
                 padding: 0.3rem;
                 background-color: black;
                 color: white;
+                cursor:pointer;
+                transition:all 50ms;
             }
-            .chat{
+            .submitbtn:hover{
+                background-color: #f0f0f0;
+                color: black;
+                transition:all 100ms ease;
+            }
+            .submitbtn:active{
+                transform: scale(0.95);
+            }
+            .chatuser{
                 display:flex;
-                width: 100%;
-                border-radius: 5px 5px 0 0;
-                background-color: rgb(236, 186, 186);
-                
+                position:relative;
+                left: 3px;
+                top: 0px;
+                width: 120%;
+                border-radius: 10px;
+                background-color: rgb(230, 169, 169);
+                height: fit-content; 
             }
-            .chat::lastchild{
-                
+            .chatuser span{
+                position:relative;
+                top: 1.5rem;
+                font-size: 1rem;
             }
             .chatbot{
                 display:flex;
                 position:relative;
+                padding: 1rem 1rem 2rem 0;
                 left: 3px;
-                top: 10px;
-                width: 103.5%;
-                border-radius: 5px 5px 0 0;
-                background-color: rgb(236, 186, 186);
+                top: 0px;
+                width: 119%;
+                height: fit-content;
+                border-radius: 10px;
+                background-color: rgb(219, 151, 151);
             }
             .chatbot span{
                 position:relative;
                 top: 1rem;
                 font-size: 0.8rem;
+                bottom: 2.5rem;
             }
             
         </style>
@@ -341,32 +360,32 @@
             </nav>
             <div class="content">
                 <div class="chat-container">
-                {% if this %}
-                <div class="chatmessages">
-                    <div class="chat">
-                        <svg xmlns="http://www.w3.org/2000/svg"  class="userimg" width="60px" height="60px" id="user"><path d="M256 256c52.805 0 96-43.201 96-96s-43.195-96-96-96-96 43.201-96 96 43.195 96 96 96zm0 48c-63.598 0-192 32.402-192 96v48h384v-48c0-63.598-128.402-96-192-96z"/></svg>
-                        <span>{{ this.query }}</span>
+                    {% if query %}
+                    <div class="chatmessages">
+                        <div class="chatuser">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="black"  class="userimg" width="60px" height="60px" id="user"><path d="M256 256c52.805 0 96-43.201 96-96s-43.195-96-96-96-96 43.201-96 96 43.195 96 96 96zm0 48c-63.598 0-192 32.402-192 96v48h384v-48c0-63.598-128.402-96-192-96z"/></svg>
+                            <span>{{ query }}</span>
+                        </div>
+                        <div class="chatbot">
+                            <img width="60px" height="60px" class="callistoimg" src="{% static "home/callistologo.png" %}">
+                            <span>{{ answer }}</span>
+                        </div>
                     </div>
-                    <div class="chat">
-                        <img width="60px" class="callistoimg" src="{% static "home/callistologo.png" %}">
-                        <span>{{ this.answer }}</span>
+                    {% else %}
+                    <div class="chatmessages">
+                        <div class="chatbot">
+                            <img width="60px" src="{% static "home/callistologo.png" %}">
+                            <span>Hello I am goin to help you with your Operating systems preparations, please feel free to ask me anything about the topic</span>
+                        </div>
                     </div>
-                </div>
-                {% else %}
-                <div class="chatmessages">
-                    <div class="chatbot">
-                        <img width="60px" src="{% static "home/callistologo.png" %}">
-                        <span>Hello I am goin to help you with your Operating systems preparations, please feel free to ask me anything about the topic</span>
+                    {% endif %}
+                    <div class="chatinput">
+                        <form action="" class="divinput" method="POST">
+                            {% csrf_token %}
+                            <input type="text" class="textinput" name="callistoip" placeholder="Enter a Question about 🖥️OperatingSystems" required />
+                            <button type="submit" class="submitbtn">Submit</button>
+                        </form>
                     </div>
-                </div>
-                {% endif %}
-                <div class="chatinput">
-                    <form action="" class="divinput" method="POST">
-                        {% csrf_token %}
-                        <input type="text" class="textinput" name="callistoip" placeholder="Enter a Question about 🖥️OperatingSystems" required />
-                        <button type="submit" class="submitbtn">Submit</button>
-                    </form>
-                </div>
                 </div>
             </div>
         </main>
